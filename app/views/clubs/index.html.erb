@@ -3,14 +3,17 @@
     <%= link_to "Create A New Club", new_club_path, class: "btn btn-outline-primary"%>
     </div>
 <% end %>
- 
+ <div class="row">
+        <div class="col-8"> 
 <% if @clubs.size > 0 %>  
 <% @clubs.each do |club| %>
-    <div class="card">
+    <div class="card p-3">
         <h3><%= link_to club.name, club %></h3>
         <%= simple_format club.regulations %>
     </div>
 <% end %>
     <% else %>
     <p>no clubs to display</p>
+    </div>
+</div>
 <% end %>

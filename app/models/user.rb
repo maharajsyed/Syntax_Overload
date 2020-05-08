@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :posts
   has_many :clubs 
   
+  validates_presence_of :first_name, :last_name, :username
+  
 
   def full_name
     "#{first_name} #{last_name}"
