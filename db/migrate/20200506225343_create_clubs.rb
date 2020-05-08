@@ -1,7 +1,7 @@
 class CreateClubs < ActiveRecord::Migration[6.0]
   def change
     create_table :clubs do |t|
-      t.references :user, polymorphic: { default: 'Photo' }
+      t.references :user
       t.string :name
       t.string :url
       t.text :regulations

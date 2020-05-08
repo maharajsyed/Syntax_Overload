@@ -1,4 +1,5 @@
-<div class="container">
+
+<% unless user_signed_in? %>
     <div class="row">
         <div class="col pt-3">
         <p class="h4 mb-4">Trending</p>
@@ -18,15 +19,17 @@
                         Trending Post 4
                     </div>
         </div>
+        <% end %>
         <div class="row">
             <div class="col pt-3">
-                <p class="h4 mb-4">Popular</p>
+                <p class="h4 mb-4"><div class="badge badge-primary text-wrap" style="width: 6rem;">Popular</div></p>
             </div>
         </div>
     <div class="row">
         <div class="col-8">
         <% @posts.each do |post| %>
-        <div class="card pt-3">
+        <div class="card p-3">
+        
             <h4><%= link_to post.title, club_post_path(post.club_id, post) %></h4>
             <p><%= truncate post.body, length: 200 %></p>
         
@@ -34,8 +37,7 @@
          <% end %>    
         </div>
         <div class="col-4">
-           <p class="h5 mb-4">Pristine Clubs</p>
-           
+           <p class="h5 mb-4">  <div class="badge badge-primary text-wrap" style="width: 6rem;">Pristine Clubs  </div></p>
            <div class="card">
                 <ul class="list-group list-group-flush">
                  <% @clubs.each do |club| %>
@@ -47,4 +49,3 @@
             <%= link_to  "View All", clubs_path, class: "btn btn-primary mt-3" %>
         </div>
     </div>
-</div>
