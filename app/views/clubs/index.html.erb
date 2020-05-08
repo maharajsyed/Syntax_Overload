@@ -8,7 +8,7 @@
 <% if @clubs.size > 0 %>  
 <% @clubs.each do |club| %>
     <div class="card p-3">
-        <h3><%= link_to club.name, club %></h3>
+        <h3><%= link_to club.name, clubs_path %></h3>
         <%= simple_format club.regulations %>
     </div>
 <% end %>
