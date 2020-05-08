@@ -1,16 +1,12 @@
 <%= link_to "Create New Post", new_club_post_path(@club), class:"btn btn-primary float-right"%>
 <div class="row">
-        <div class="col-8"> 
-<%= @club.name %>
-
-<% @posts.each do |post| %>
-
-    <h4><%= link_to post.title, club_post_path(@club, post) %></h4>
-    <p><%= truncate post.body, length: 200 %></p>
-
-<% end %>
-    <small>
-    <%= simple_format @club.regulations %>
-    </small>
-</div>
+    <div class="col-8"> 
+       <h2><div class="badge badge-primary text-wrap" style="width: 10rem;"><%= @club.name %></div></h2>
+<%= render partial: "posts/list", locals: { posts: @posts } %> 
+        <div class="col-sm-4">
+            <small>
+            <%= simple_format @club.regulations %>
+            </small>
+        </div>
+    </div>
 </div>
